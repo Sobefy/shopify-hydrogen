@@ -1,12 +1,12 @@
-import {Image, Link} from '@shopify/hydrogen';
+import { Image, Link } from "@shopify/hydrogen";
 
-import MoneyCompareAtPrice from './MoneyCompareAtPrice.client';
-import MoneyPrice from './MoneyPrice.client';
+import MoneyCompareAtPrice from "./MoneyCompareAtPrice.client";
+import MoneyPrice from "./MoneyPrice.client";
 
 /**
  * A shared component that displays a single product to allow buyers to quickly identify a particular item of interest
  */
-export default function ProductCard({product}) {
+export default function ProductCard({ product }) {
   const selectedVariant = product.variants.edges[0].node;
 
   if (selectedVariant == null) {
@@ -30,15 +30,17 @@ export default function ProductCard({product}) {
           )}
         </div>
 
-        <span className="text-black font-semibold mb-0.5">{product.title}</span>
+        <span className="text-blue text-3xl font-semibold mb-0.5">
+          {product.title}
+        </span>
 
         {product.vendor && (
-          <p className="text-gray-900 font-medium text-sm mb-0.5">
+          <p className="text-blue-900 font-medium text-sm mb-0.5">
             {product.vendor}
           </p>
         )}
 
-        <div className="flex ">
+        <div className="flex">
           {selectedVariant.compareAtPriceV2 && (
             <MoneyCompareAtPrice money={selectedVariant.compareAtPriceV2} />
           )}
